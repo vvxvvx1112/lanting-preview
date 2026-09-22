@@ -87,18 +87,22 @@
   .hero-brand .seal { background: #F7E8D8; border-color: #F7E8D8; color: var(--brand); }
   .hero-title { font-size: 26px; font-weight: 600; letter-spacing: 3px; }
   .hero-sub { font-size: 12px; opacity: .82; margin-top: 3px; }
-  .member-card { position: relative; z-index: 2; margin-top: 18px; background: rgba(255,255,255,.1); border: 1px solid rgba(192,160,98,.5); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
-  .member-name { font-size: 16px; font-weight: 600; }
+  .member-card { position: relative; z-index: 2; margin: 14px 14px 0; background: linear-gradient(135deg, #FBF8F1, #F2E9D3); border: 1px solid var(--gold-light); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+  .member-name { font-size: 16px; font-weight: 600; color: var(--ink); }
   .member-pts { text-align: right; }
-  .member-pts b { font-size: 20px; color: #E9D3A8; }
-  .member-pts span { display: block; font-size: 10px; opacity: .8; }
-  .banner-wrap { padding: 0 14px; margin-top: -30px; position: relative; z-index: 3; }
-  .banner { height: 150px; border-radius: 12px; overflow: hidden; }
-  .banner-item { height: 150px; border-radius: 12px; padding: 20px; position: relative; overflow: hidden; cursor: pointer; }
+  .member-pts b { font-size: 20px; color: var(--gold); }
+  .member-pts span { display: block; font-size: 10px; color: var(--muted); }
+  .banner-wrap { padding: 0 14px; margin-top: 12px; position: relative; z-index: 3; }
+  .banner { height: 150px; border-radius: 12px; overflow: hidden; position: relative; }
+  .banner-track { display: flex; height: 100%; transition: transform .5s ease; }
+  .banner-item { flex: 0 0 100%; height: 150px; padding: 20px; position: relative; overflow: hidden; }
   .banner-sub { font-size: 12px; opacity: .85; }
   .banner-title { font-size: 26px; font-weight: 600; margin: 6px 0; letter-spacing: 2px; }
   .banner-desc { font-size: 12px; opacity: .85; }
   .banner-seal { position: absolute; right: 20px; bottom: 18px; width: 32px; height: 32px; border: 2px solid currentColor; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 18px; opacity: .8; transform: rotate(-8deg); }
+  .banner-dots { position: absolute; bottom: 10px; right: 14px; display: flex; gap: 5px; z-index: 2; }
+  .banner-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.45); transition: all .2s; }
+  .banner-dot.on { width: 14px; border-radius: 3px; background: #fff; }
   .quick { display: flex; flex-wrap: wrap; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 0; margin: 14px; }
   .quick-item { width: 25%; display: flex; flex-direction: column; align-items: center; padding: 10px 0; cursor: pointer; }
   .quick-ic { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #F6E7C1, #E4C88E); color: #7A5B22; display: flex; align-items: center; justify-content: center; font-size: 19px; margin-bottom: 6px; border: 1px solid var(--gold-light); }
@@ -127,6 +131,12 @@
   .cat-bar::-webkit-scrollbar { display: none; }
   .cat-item { flex-shrink: 0; font-size: 13px; color: var(--ink-2); padding: 6px 15px; border-radius: 999px; cursor: pointer; }
   .cat-item.on { background: linear-gradient(135deg, var(--brand), var(--brand-deep)); color: #F7E8D8; font-weight: 600; }
+  .status-bar { display: flex; background: #fff; padding: 12px 14px 4px; gap: 10px; }
+  .status-item { flex: 1; text-align: center; padding: 9px 0; border-radius: 10px; font-size: 14px; color: var(--ink-2); background: #F7F1E6; cursor: pointer; }
+  .status-item.on { background: linear-gradient(135deg, var(--brand), var(--brand-deep)); color: #F7E8D8; font-weight: 600; }
+  .region-bar { display: flex; align-items: center; background: #fff; padding: 6px 14px 12px; gap: 10px; border-bottom: 1px solid var(--line); }
+  .region-label { flex-shrink: 0; font-size: 12px; color: var(--muted); }
+  .region-select { flex: 1; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--ink); background: #fff; outline: none; }
   .ev-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 14px; cursor: pointer; }
   .ev-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; }
   .ev-date { font-size: 22px; font-weight: 700; }
@@ -176,7 +186,7 @@
   .level-item.cur .ln { color: var(--brand); font-weight: 600; }
   .level-tip { margin-top: 10px; font-size: 11px; color: var(--muted); background: #F3EFE4; padding: 8px 10px; border-radius: 6px; }
   .benefit-grid { display: flex; flex-wrap: wrap; }
-  .benefit-cell { width: 50%; padding: 8px 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .benefit-cell { width: 25%; padding: 6px 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
   .benefit-ic { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #F6E7C1, #E4C88E); color: #7A5B22; display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 5px; }
   .benefit-name { font-size: 13px; color: var(--ink); font-weight: 500; }
   .benefit-desc { font-size: 10px; color: var(--muted); margin-top: 2px; }
@@ -212,6 +222,13 @@
   .detail-hero { padding: 28px 18px; color: #F7E8D8; }
   .detail-hero .cate { font-size: 12px; opacity: .85; }
   .detail-hero .t { font-size: 22px; font-weight: 600; margin: 8px 0; line-height: 1.4; }
+  .mall-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .product-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; }
+  .product-img { height: 104px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+  .product-body { padding: 10px 12px 12px; }
+  .product-name { font-size: 13px; color: var(--ink); font-weight: 500; line-height: 1.4; }
+  .product-price { font-size: 15px; color: var(--brand); font-weight: 600; margin-top: 6px; }
+  .faq-chip { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink-2); cursor: pointer; background: #FBF7EF; }
   .info-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #F0E9DB; }
   .info-row:last-child { border-bottom: none; }
   .info-label { font-size: 13px; color: var(--muted); }
@@ -270,15 +287,15 @@
     <div class="screen" id="screen">
       <!-- ============ 首页 ============ -->
       <section class="page active" id="p-index">
-        <div class="hero">
-          <div class="hero-brand"><span class="seal">兰</span><div><div class="hero-title serif">兰亭荟</div><div class="hero-sub">会稽山 · 高端黄酒会员体系</div></div></div>
-          <div class="member-card" onclick="go('member')">
-            <div><div class="member-name">陈先生</div><div class="level-badge">SVIP会员</div></div>
-            <div class="member-pts"><b>26800</b><span>积分</span></div>
+        <div class="banner-wrap">
+          <div class="banner" id="banner">
+            <div class="banner-track" id="bannerTrack"></div>
+            <div class="banner-dots" id="bannerDots"></div>
           </div>
         </div>
-        <div class="banner-wrap">
-          <div class="banner" id="banner"></div>
+        <div class="member-card" onclick="go('mine')">
+          <div><div class="member-name">陈先生</div><div class="level-badge">SVIP会员</div></div>
+          <div class="member-pts"><b>26800</b><span>积分</span></div>
         </div>
         <div class="quick" id="quickEntries"></div>
         <div class="sec"><div class="sec-title">精选活动</div><div class="sec-more" onclick="go('events')">全部 ›</div></div>
@@ -295,8 +312,15 @@
 
       <!-- ============ 活动 ============ -->
       <section class="page" id="p-events">
+        <div class="status-bar" id="statusBar"></div>
         <div class="cat-bar" id="catBar"></div>
+        <div class="region-bar"><span class="region-label">地区</span><select class="region-select" id="regionSelect" onchange="filterRegion(this.value)"></select></div>
         <div class="container" id="eventList"></div>
+      </section>
+
+      <!-- ============ 我的活动 ============ -->
+      <section class="page" id="p-my-events">
+        <div class="container" id="myEventList"></div>
       </section>
 
       <!-- ============ 文化 ============ -->
@@ -309,43 +333,23 @@
         </div>
       </section>
 
-      <!-- ============ 会员 ============ -->
-      <section class="page" id="p-member">
-        <div class="m-hero">
-          <div class="avatar serif">陈</div>
-          <div style="flex:1"><div class="m-name">陈先生</div><div class="m-company">会稽山·战略合作伙伴</div><span class="level-badge">SVIP会员</span></div>
-          <div class="m-pts" onclick="go('points')"><b>26800</b><span>积分</span></div>
+      <!-- ============ 商城 ============ -->
+      <section class="page" id="p-mall">
+        <div class="detail-hero bg-red" style="text-align:center">
+          <div style="font-size:12px;opacity:.85">兰亭商城</div>
+          <div class="serif" style="font-size:22px;font-weight:600;letter-spacing:4px;margin:8px 0 4px">雅物臻选</div>
+          <div style="font-size:12px;opacity:.85">臻选黄酒 · 兰亭文创 · 节气礼盒</div>
         </div>
-        <div class="container">
-          <div class="card">
-            <div class="card-title serif">会员等级</div>
-            <div class="level-list" id="levelList"></div>
-            <div class="level-tip">升级规则：消费金额、活动参与次数、积分累计、特邀准入</div>
-          </div>
-          <div class="card">
-            <div class="card-title serif">我的权益</div>
-            <div class="benefit-grid" id="memberBenefits"></div>
-          </div>
-          <div class="card">
-            <div class="card-head"><div class="card-title serif">最近积分</div><div class="more" onclick="go('points')">明细 ›</div></div>
-            <div id="recentPoints" style="margin-top:6px"></div>
-          </div>
-          <div class="card">
-            <div class="card-title serif">快捷服务</div>
-            <div class="service-row">
-              <div class="service-item" onclick="go('benefits')"><div class="service-ic serif">权</div><div class="service-name">权益兑换</div></div>
-              <div class="service-item" onclick="go('booking')"><div class="service-ic serif">约</div><div class="service-name">预约服务</div></div>
-              <div class="service-item" onclick="go('register')"><div class="service-ic serif">档</div><div class="service-name">完善档案</div></div>
-            </div>
-          </div>
-        </div>
+        <div class="cat-bar" id="mallCatBar"></div>
+        <div class="container mall-list" id="mallList"></div>
       </section>
 
       <!-- ============ 我的 ============ -->
       <section class="page" id="p-mine">
         <div class="m-hero">
           <div class="avatar serif">陈</div>
-          <div style="flex:1"><div class="m-name">陈先生</div><span class="level-badge">SVIP会员</span><div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap"></div></div>
+          <div style="flex:1"><div class="m-name">陈先生</div><div class="m-company">会稽山·战略合作伙伴</div><span class="level-badge">SVIP会员</span></div>
+          <div class="m-pts" onclick="go('points')"><b>26800</b><span>积分</span></div>
         </div>
         <div class="stat-row">
           <div class="stat-cell"><div class="stat-num">26800</div><div class="stat-label">积分</div></div>
@@ -355,8 +359,52 @@
           <div class="stat-cell"><div class="stat-num">04-27</div><div class="stat-label">入会时间</div></div>
         </div>
         <div class="container">
+          <div class="card">
+            <div class="card-title serif">会员等级</div>
+            <div class="level-list" id="levelList"></div>
+            <div class="level-tip">升级规则：按年销售额划分，KOC 五级 · KOL 按合作身份管理</div>
+          </div>
+          <div class="card">
+            <div class="card-title serif">我的权益</div>
+            <div class="benefit-grid" id="memberBenefits"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div class="card-title serif">最近积分</div><div class="more" onclick="go('points')">明细 ›</div></div>
+            <div id="recentPoints" style="margin-top:6px"></div>
+          </div>
           <div class="card" id="mineMenu"></div>
           <div class="footer serif">以酒会友 · 雅集兰亭</div>
+        </div>
+      </section>
+
+      <!-- ============ 联系客服 ============ -->
+      <section class="page" id="p-contact">
+        <div class="detail-hero bg-red" style="display:flex;align-items:center;gap:14px">
+          <div class="avatar serif" style="width:54px;height:54px;font-size:26px;background:#F7E8D8;color:var(--brand)">兰</div>
+          <div style="flex:1">
+            <div style="font-size:18px;font-weight:600;letter-spacing:2px">兰亭荟专属管家</div>
+            <div style="font-size:12px;opacity:.85;margin-top:4px">一对一专属服务 · 高端会员礼遇</div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="card">
+            <div class="card-title serif">服务时间</div>
+            <div class="info-row"><span class="info-label">在线时段</span><span class="info-val">每日 09:00 — 21:00</span></div>
+            <div class="info-row"><span class="info-label">服务说明</span><span class="info-val">节假日不休，管家一对一接待</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title serif">快捷咨询</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px" id="faqList"></div>
+          </div>
+          <div class="card">
+            <div class="card-title serif">客服热线</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+              <div style="font-size:18px;font-weight:600;color:var(--ink);letter-spacing:1px">400-826-6666</div>
+              <button class="btn btn-ghost" style="height:36px;padding:0 18px;font-size:13px" onclick="toast('正在拨打客服热线')">拨打</button>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="width:100%" onclick="toast('已连接专属管家，请稍候')">发起会话</button>
+          <div style="font-size:11px;color:var(--faint);text-align:center;margin-top:12px;line-height:1.7">发起会话后接入微信客服，管家将一对一为您服务。</div>
         </div>
       </section>
 
@@ -390,7 +438,6 @@
       <section class="page" id="p-benefits">
         <div class="detail-hero bg-red" style="display:flex;align-items:center;justify-content:space-between">
           <div><div style="font-size:12px;opacity:.85">我的积分</div><div style="font-size:30px;font-weight:700;color:#E9D3A8">26800</div></div>
-          <div style="background:rgba(255,255,255,.12);border:1px solid rgba(233,211,168,.5);padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer" onclick="go('voucher')">我的核销码 ›</div>
         </div>
         <div class="container" id="benefitsPanel"></div>
       </section>
@@ -399,20 +446,15 @@
       <section class="page" id="p-voucher">
         <div class="container" style="padding-top:26px">
           <div class="voucher-card">
-            <div class="serif" style="font-size:16px;font-weight:600;margin-bottom:16px">兰亭雅宴·秋分宴 兑换券</div>
+            <div class="serif" style="font-size:16px;font-weight:600;margin-bottom:16px">生日礼遇 · 生辰专属贺礼</div>
             <div class="qr"><div class="qr-corner tl"></div><div class="qr-corner tr"></div><div class="qr-corner bl"></div><div class="qr-seal serif">兰</div></div>
-            <div class="voucher-code serif">LT-2026-0923-0001</div>
+            <div class="voucher-code serif">LT-2026-0912-0008</div>
             <span class="tag tag-red">待核销</span>
-            <div class="voucher-remark">仅限 2026-09-23 兰亭雅集空间使用，一码一物、单次有效</div>
+            <div class="voucher-remark">生辰当月有效，凭码至会稽山门店领取专属贺礼，一码一物、单次有效</div>
           </div>
           <div class="btn btn-primary" style="width:100%;margin-top:20px" onclick="copyCode()">复制核销码</div>
           <div style="font-size:11px;color:var(--faint);text-align:center;margin-top:12px;line-height:1.6">请向工作人员出示本核销码，扫码核销后一码一物、单次有效，不可重复使用。</div>
         </div>
-      </section>
-
-      <!-- ============ 预约 ============ -->
-      <section class="page" id="p-booking">
-        <div class="container" id="bookingPanel"></div>
       </section>
 
       <!-- ============ 积分明细 ============ -->
@@ -455,36 +497,51 @@
 <script>
   /* ============ 数据 ============ */
   const user = { name:'陈先生', level:'SVIP会员', points:26800, company:'会稽山·战略合作伙伴', joinedEvents:6 };
+  const myEventIds = [1, 2, 3, 5]; // 陈先生已报名 / 已参加的活动
   const levels = [
-    { name:'普通会员', points:'0 起', cur:false }, { name:'VIP会员', points:'1万起', cur:false },
-    { name:'SVIP会员', points:'3万起', cur:true }, { name:'兰VVIP', points:'特邀', cur:false }
+    { name:'普通', points:'0-1万', cur:false }, { name:'VIP', points:'1-3万', cur:false },
+    { name:'SVIP', points:'3-5万', cur:true }, { name:'VVIP', points:'5-10万', cur:false },
+    { name:'VVVIP', points:'10万+', cur:false }
   ];
   const memberBenefits = [
     { ic:'品', name:'专属品鉴', desc:'新品优先品鉴' }, { ic:'雅', name:'雅集优先报名', desc:'抢先锁定席位' },
-    { ic:'宴', name:'宴席定制服务', desc:'一对一专属' }, { ic:'礼', name:'生日礼遇', desc:'生辰专属贺礼' }
+    { ic:'宴', name:'宴席定制服务', desc:'一对一专属' }, { ic:'礼', name:'生日礼遇', desc:'生辰专属贺礼', go:'voucher' }
   ];
   const pointsRecords = [
     { type:'income', title:'品鉴会报名打卡', value:'+500' }, { type:'income', title:'分享品牌内容', value:'+200' },
     { type:'expense', title:'兑换·节气伴手礼', value:'-800' }, { type:'income', title:'兰亭雅宴消费积分', value:'+3000' }
   ];
   const banners = [
-    { theme:'bg-red', sub:'秋分·金风玉露', title:'兰亭雅宴', desc:'高端餐酒雅宴 · 预约开启' },
-    { theme:'bg-ink', sub:'陈年黄酒品鉴会', title:'大师品鉴', desc:'首席酿酒大师亲临' },
-    { theme:'bg-teal', sub:'秋季高尔夫邀请赛', title:'高尔夫邀请赛', desc:'以球会友 · 雅集鉴湖' }
+    { theme:'bg-red', sub:'会稽山 · 传承千年', title:'匠心酿造', desc:'鉴湖水 · 糯米香 · 非遗黄酒' },
+    { theme:'bg-ink', sub:'兰亭荟 · 私域圈层', title:'以酒会友', desc:'高净值会员 · 雅集兰亭' },
+    { theme:'bg-teal', sub:'四季餐酒 · 养生之道', title:'应时而食', desc:'春疏肝 · 夏化湿 · 秋润燥 · 冬温补' }
   ];
   const quickEntries = [
-    { ic:'会', name:'会员中心', go:'member' }, { ic:'集', name:'活动报名', go:'events' },
-    { ic:'文', name:'餐酒文化', go:'culture' }, { ic:'权', name:'权益兑换', go:'benefits' },
-    { ic:'约', name:'预约服务', go:'booking' }, { ic:'客', name:'在线客服', go:'' }
+    { ic:'溯', name:'扫码溯源', msg:'扫码溯源（演示）' }, { ic:'店', name:'附近门店', msg:'附近门店（演示）' },
+    { ic:'权', name:'兰亭荟会员权益', go:'benefits' }, { ic:'集', name:'我的活动', go:'my-events' }
   ];
   const categories = ['全部','高尔夫赛事','兰亭雅宴','兰亭雅集','品鉴会','主题活动','名家文化沙龙'];
+  const provinces = ['全部','浙江','上海','江苏','北京'];
+  const mallCates = ['全部','臻选酒品','兰亭文创','节气礼盒'];
+  const products = [
+    { cate:'臻选酒品', name:'兰亭·陈年花雕 15年', price:'¥1,280', tag:'会员价', ic:'酒', theme:'bg-red' },
+    { cate:'臻选酒品', name:'会稽山·善酿原浆', price:'¥860', tag:'', ic:'酿', theme:'bg-ink' },
+    { cate:'臻选酒品', name:'兰亭·节气定制酒', price:'¥680', tag:'新品', ic:'节', theme:'bg-teal' },
+    { cate:'兰亭文创', name:'兰亭集序·书法卷轴', price:'¥198', tag:'', ic:'书', theme:'bg-gold' },
+    { cate:'兰亭文创', name:'曲水流觞·竹制书签', price:'¥68', tag:'', ic:'签', theme:'bg-teal' },
+    { cate:'兰亭文创', name:'兰亭·青瓷对盏', price:'¥398', tag:'限量', ic:'盏', theme:'bg-ink' },
+    { cate:'节气礼盒', name:'秋分·金风玉露礼盒', price:'¥520', tag:'', ic:'秋', theme:'bg-gold' },
+    { cate:'节气礼盒', name:'中秋·团圆雅集礼盒', price:'¥888', tag:'热销', ic:'月', theme:'bg-red' },
+    { cate:'节气礼盒', name:'冬至·围炉温补礼盒', price:'¥660', tag:'', ic:'冬', theme:'bg-teal' }
+  ];
+  const statuses = ['全部','报名中','报名结束'];
   const events = [
-    { id:1, cate:'高尔夫赛事', title:'兰亭荟·秋季高尔夫邀请赛', status:'报名中', tag:'tag-red', date:'10-18', time:'09:00-17:00', loc:'绍兴·鉴湖高尔夫球场', signed:42, cap:60, limit:'SVIP及以上', theme:'bg-teal', intro:'以球会友，雅集于鉴湖之畔。赛事设标准杆挑战、最远距离奖、一杆进洞奖。', flow:['09:00 签到入场','10:00 开球仪式','12:30 球场午餐','17:30 颁奖晚宴'], benefits:['定制高尔夫礼盒','雅宴席位','高活跃标签'] },
-    { id:2, cate:'兰亭雅宴', title:'秋分·金风玉露兰亭雅宴', status:'报名中', tag:'tag-red', date:'09-23', time:'18:30-21:30', loc:'绍兴·兰亭雅集空间', signed:30, cap:30, limit:'VIP及以上', theme:'bg-red', intro:'秋分时节，以滋阴润燥为养生主线，配以兰亭陈年黄酒，呈现餐酒合一的雅宴。', flow:['18:00 净手迎宾','18:30 开宴祝酒','19:00 上菜佐酒','21:30 礼成'], benefits:['宴席伴手礼','餐酒手册','影像留念'] },
-    { id:3, cate:'品鉴会', title:'兰亭·陈年黄酒大师品鉴会', status:'报名中', tag:'tag-red', date:'09-28', time:'14:00-16:30', loc:'会稽山·酿酒体验中心', signed:21, cap:40, limit:'普通会员及以上', theme:'bg-ink', intro:'首席酿酒大师亲临，现场解读黄酒酿造工艺，品鉴五款不同年份陈酿。', flow:['14:00 签到','14:30 大师讲堂','15:30 品鉴','16:30 结束'], benefits:['限定品鉴小酒','大师签名手册'] },
-    { id:4, cate:'名家文化沙龙', title:'兰亭书道·名家文化沙龙', status:'已满员', tag:'tag-gold', date:'09-20', time:'14:00-17:00', loc:'绍兴·兰亭书法博物馆', signed:20, cap:20, limit:'VVIP专属', theme:'bg-gold', intro:'邀请当代书法名家，于兰亭故地再续曲水流觞之雅，现场挥毫泼墨。', flow:['14:00 签到','14:30 名家讲堂','16:00 现场挥毫'], benefits:['名家墨宝','文房礼盒'] },
-    { id:5, cate:'主题活动', title:'兰亭荟·中秋团圆雅集', status:'回顾', tag:'tag-teal', date:'09-06', time:'15:00-19:00', loc:'绍兴·鉴湖湖畔', signed:50, cap:50, limit:'VIP及以上', theme:'bg-red', intro:'中秋前夕，湖畔赏月、品酒、对诗，共度团圆雅集。', flow:['15:00 签到','16:00 游园','18:00 雅宴'], benefits:['中秋礼盒','限量文创'] },
-    { id:6, cate:'兰亭雅集', title:'冬日温补·兰亭雅集', status:'预告中', tag:'tag-gray', date:'11-08', time:'17:30-21:00', loc:'绍兴·兰亭雅集空间', signed:0, cap:35, limit:'VIP及以上', theme:'bg-ink', intro:'以温补养生为主线，冬日围炉煮酒，共享暖冬雅集。', flow:['17:30 围炉迎宾','18:00 温酒开宴'], benefits:['暖冬养生礼','围炉文创'] }
+    { id:1, cate:'高尔夫赛事', title:'兰亭荟·秋季高尔夫邀请赛', status:'报名中', tag:'tag-red', date:'10-18', time:'09:00-17:00', loc:'上海·佘山国际高尔夫', province:'上海', signed:42, cap:60, limit:'SVIP及以上', theme:'bg-teal', intro:'以球会友，雅集于佘山之畔。赛事设标准杆挑战、最远距离奖、一杆进洞奖。', flow:['09:00 签到入场','10:00 开球仪式','12:30 球场午餐','17:30 颁奖晚宴'], benefits:['定制高尔夫礼盒','雅宴席位','高活跃标签'] },
+    { id:2, cate:'兰亭雅宴', title:'秋分·金风玉露兰亭雅宴', status:'报名中', tag:'tag-red', date:'09-23', time:'18:30-21:30', loc:'绍兴·兰亭雅集空间', province:'浙江', signed:30, cap:30, limit:'VIP及以上', theme:'bg-red', intro:'秋分时节，以滋阴润燥为养生主线，配以兰亭陈年黄酒，呈现餐酒合一的雅宴。', flow:['18:00 净手迎宾','18:30 开宴祝酒','19:00 上菜佐酒','21:30 礼成'], benefits:['宴席伴手礼','餐酒手册','影像留念'] },
+    { id:3, cate:'品鉴会', title:'兰亭·陈年黄酒大师品鉴会', status:'报名中', tag:'tag-red', date:'09-28', time:'14:00-16:30', loc:'绍兴·会稽山酿酒体验中心', province:'浙江', signed:21, cap:40, limit:'普通会员及以上', theme:'bg-ink', intro:'首席酿酒大师亲临，现场解读黄酒酿造工艺，品鉴五款不同年份陈酿。', flow:['14:00 签到','14:30 大师讲堂','15:30 品鉴','16:30 结束'], benefits:['限定品鉴小酒','大师签名手册'] },
+    { id:4, cate:'名家文化沙龙', title:'兰亭书道·名家文化沙龙', status:'已满员', tag:'tag-gold', date:'09-20', time:'14:00-17:00', loc:'南京·金陵书画院', province:'江苏', signed:20, cap:20, limit:'VVIP专属', theme:'bg-gold', intro:'邀请当代书法名家，于金陵再续曲水流觞之雅，现场挥毫泼墨。', flow:['14:00 签到','14:30 名家讲堂','16:00 现场挥毫'], benefits:['名家墨宝','文房礼盒'] },
+    { id:5, cate:'主题活动', title:'兰亭荟·中秋团圆雅集', status:'回顾', tag:'tag-teal', date:'09-06', time:'15:00-19:00', loc:'绍兴·鉴湖湖畔', province:'浙江', signed:50, cap:50, limit:'VIP及以上', theme:'bg-red', intro:'中秋前夕，湖畔赏月、品酒、对诗，共度团圆雅集。', flow:['15:00 签到','16:00 游园','18:00 雅宴'], benefits:['中秋礼盒','限量文创'] },
+    { id:6, cate:'兰亭雅集', title:'冬日温补·兰亭雅集', status:'预告中', tag:'tag-gray', date:'11-08', time:'17:30-21:00', loc:'北京·兰亭雅集空间', province:'北京', signed:0, cap:35, limit:'VIP及以上', theme:'bg-ink', intro:'以温补养生为主线，冬日围炉煮酒，共享暖冬雅集。', flow:['17:30 围炉迎宾','18:00 温酒开宴'], benefits:['暖冬养生礼','围炉文创'] }
   ];
   const cultures = [
     { tag:'酿酒工艺', title:'酿酒工艺 · 会稽山酿造流程', desc:'精选糯米、鉴湖佳水，历经浸米、蒸饭、落缸、开耙、压榨、煎酒、封坛……一坛好酒需经岁月沉淀。' },
@@ -506,7 +563,7 @@
     { ic:'品', name:'专属品鉴', tag:'免费权益', tagc:'tag-red', desc:'新品优先品鉴' },
     { ic:'雅', name:'雅集优先报名', tag:'免费权益', tagc:'tag-red', desc:'抢先锁定席位' },
     { ic:'宴', name:'宴席定制服务', tag:'免费权益', tagc:'tag-red', desc:'一对一专属' },
-    { ic:'礼', name:'生日礼遇', tag:'免费权益', tagc:'tag-red', desc:'生辰专属贺礼' },
+    { ic:'礼', name:'生日礼遇', tag:'免费权益', tagc:'tag-red', desc:'生辰专属贺礼', go:'voucher' },
     { ic:'赛', name:'高端赛事直通', tag:'限定权益', tagc:'tag-gold', desc:'高尔夫赛事直通名额' },
     { ic:'私', name:'私宴定制', tag:'限定权益', tagc:'tag-gold', desc:'大师私享定制' }
   ];
@@ -515,28 +572,36 @@
     { ic:'礼', name:'节气伴手礼', pts:800 }, { ic:'席', name:'雅集名额抵扣', pts:5000 },
     { ic:'墨', name:'文房套装', pts:2800 }, { ic:'酿', name:'陈年黄酒礼盒', pts:8000 }
   ];
-  const bookingTypes = [
-    { ic:'宴', name:'高端私宴预约', desc:'企业宴请 / 私人雅宴，选季节宴席、定人数与需求' },
-    { ic:'厂', name:'酒厂参观预约', desc:'会稽山厂区研学参观，走进黄酒酿造现场' },
-    { ic:'客', name:'在线客服咨询', desc:'商务定制、宴席咨询、会员问题一对一解答' }
-  ];
-
-  const TABS = ['index','events','culture','member','mine'];
-  const TITLES = { index:'兰亭荟', events:'兰亭雅集', culture:'兰亭风雅', member:'会员中心', mine:'我的', 'event-detail':'活动详情', signup:'活动报名', benefits:'权益中心', voucher:'核销码', booking:'预约服务', points:'积分明细', register:'入会注册' };
+  const TABS = ['index','events','culture','mall','mine'];
+  const TITLES = { index:'兰亭荟', events:'兰亭雅集', culture:'兰亭风雅', mall:'兰亭商城', mine:'我的', 'event-detail':'活动详情', signup:'活动报名', benefits:'权益中心', voucher:'核销确认', points:'积分明细', register:'入会注册', contact:'联系客服', 'my-events':'我的活动' };
   let stack = ['index'];
   let currentEvent = null;
   let activeCategory = '全部';
+  let activeRegion = '全部';
+  let activeStatus = '全部';
+  let activeMallCate = '全部';
 
   /* ============ 渲染 ============ */
   function el(tag, cls, html){ return `<${tag} class="${cls}">${html}</${tag}>`; }
 
+  let bannerIndex = 0, bannerTimer = null;
   function renderBanner(){
-    document.getElementById('banner').innerHTML = banners.map(b => `
-      <div class="banner-item ${b.theme}" onclick="go('events')"><div class="banner-sub serif">${b.sub}</div><div class="banner-title serif">${b.title}</div><div class="banner-desc">${b.desc}</div><div class="banner-seal serif">荟</div></div>`).join('');
+    document.getElementById('bannerTrack').innerHTML = banners.map(b => `
+      <div class="banner-item ${b.theme}"><div class="banner-sub serif">${b.sub}</div><div class="banner-title serif">${b.title}</div><div class="banner-desc">${b.desc}</div><div class="banner-seal serif">荟</div></div>`).join('');
+    document.getElementById('bannerDots').innerHTML = banners.map((_,i)=>`<span class="banner-dot ${i===0?'on':''}"></span>`).join('');
+    startBanner();
+  }
+  function startBanner(){
+    clearInterval(bannerTimer);
+    bannerTimer = setInterval(()=>{ bannerIndex = (bannerIndex + 1) % banners.length; updateBanner(); }, 3200);
+  }
+  function updateBanner(){
+    document.getElementById('bannerTrack').style.transform = `translateX(-${bannerIndex * 100}%)`;
+    document.querySelectorAll('#bannerDots .banner-dot').forEach((d,i)=>d.classList.toggle('on', i===bannerIndex));
   }
   function renderQuick(){
     document.getElementById('quickEntries').innerHTML = quickEntries.map(q => `
-      <div class="quick-item" onclick="${q.go ? `go('${q.go}')` : "toast('已接入在线客服（演示）')"}"><div class="quick-ic serif">${q.ic}</div><div class="quick-name">${q.name}</div></div>`).join('');
+      <div class="quick-item" onclick="${q.go ? `go('${q.go}')` : `toast('${q.msg||'功能演示中'}')`}"><div class="quick-ic serif">${q.ic}</div><div class="quick-name">${q.name}</div></div>`).join('');
   }
   function renderFeatured(){
     const list = events.filter(e => e.status === '报名中');
@@ -554,7 +619,12 @@
     document.getElementById('catBar').innerHTML = categories.map(c => `<div class="cat-item ${c===activeCategory?'on':''}" onclick="filterCat('${c}')">${c}</div>`).join('');
   }
   function renderEventList(){
-    const list = activeCategory === '全部' ? events : events.filter(e => e.cate === activeCategory);
+    const list = events.filter(e => {
+      if (activeCategory !== '全部' && e.cate !== activeCategory) return false;
+      if (activeRegion !== '全部' && e.province !== activeRegion) return false;
+      if (activeStatus !== '全部' && statusGroup(e.status) !== activeStatus) return false;
+      return true;
+    });
     document.getElementById('eventList').innerHTML = list.map(e => {
       const pct = Math.round(e.signed/e.cap*100);
       return `<div class="ev-card" onclick="openEvent(${e.id})">
@@ -565,7 +635,47 @@
       </div>`;
     }).join('');
   }
+  function renderMyEvents(){
+    const mine = events.filter(e => myEventIds.includes(e.id));
+    const upcoming = mine.filter(e => e.status !== '回顾');
+    const past = mine.filter(e => e.status === '回顾');
+    const card = (e, tagText, tagc) => {
+      const pct = Math.round(e.signed/e.cap*100);
+      return `<div class="ev-card" onclick="openEvent(${e.id})">
+        <div class="ev-top ${e.theme}"><div><span class="ev-date serif">${e.date}</span><span class="ev-time">${e.time}</span></div><span class="ev-cate serif">${e.cate}</span></div>
+        <div class="ev-main"><div class="ev-title">${e.title}</div><div class="ev-tags"><span class="tag ${tagc}">${tagText}</span><span class="tag tag-line">${e.limit}</span></div>
+        <div class="ev-meta">📍 ${e.loc}</div>
+        <div class="progress-row"><div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div><span class="progress-text">${e.signed}/${e.cap}</span></div></div>
+      </div>`;
+    };
+    let html = '';
+    if (upcoming.length) html += `<div class="sec"><div class="sec-title">已报名（待参加）</div></div>` + upcoming.map(e => card(e, '已报名', 'tag-red')).join('');
+    if (past.length) html += `<div class="sec"><div class="sec-title">已参加</div></div>` + past.map(e => card(e, '已参加', 'tag-teal')).join('');
+    if (!mine.length) html = `<div class="card" style="text-align:center;color:var(--muted);padding:30px">暂无活动记录</div>`;
+    document.getElementById('myEventList').innerHTML = html;
+  }
   function filterCat(c){ activeCategory = c; renderCatBar(); renderEventList(); }
+  function renderStatusBar(){
+    document.getElementById('statusBar').innerHTML = statuses.map(s => `<div class="status-item ${s===activeStatus?'on':''}" onclick="filterStatus('${s}')">${s}</div>`).join('');
+  }
+  function renderRegionBar(){
+    document.getElementById('regionSelect').innerHTML = provinces.map(p => `<option value="${p}" ${p===activeRegion?'selected':''}>${p==='全部'?'全部地区':p}</option>`).join('');
+  }
+  function filterStatus(s){ activeStatus = s; renderStatusBar(); renderEventList(); }
+  function filterRegion(v){ activeRegion = v; renderEventList(); }
+  function statusGroup(s){ return (s === '报名中' || s === '预告中') ? '报名中' : '报名结束'; }
+  function renderMallCatBar(){
+    document.getElementById('mallCatBar').innerHTML = mallCates.map(c => `<div class="cat-item ${c===activeMallCate?'on':''}" onclick="filterMall('${c}')">${c}</div>`).join('');
+  }
+  function renderMallList(){
+    const list = activeMallCate === '全部' ? products : products.filter(p => p.cate === activeMallCate);
+    document.getElementById('mallList').innerHTML = list.map(p => `
+      <div class="product-card" onclick="toast('${p.name}（演示）')">
+        <div class="product-img ${p.theme}"><span class="serif">${p.ic}</span></div>
+        <div class="product-body"><div class="product-name">${p.name}</div><div class="product-price">${p.price}${p.tag?`<span class="tag tag-red" style="margin-left:6px">${p.tag}</span>`:''}</div></div>
+      </div>`).join('');
+  }
+  function filterMall(c){ activeMallCate = c; renderMallCatBar(); renderMallList(); }
   function renderCultures(){
     document.getElementById('culturePanel').innerHTML = `<div class="container">` + cultures.map(c => `
       <div class="card cul-card"><div class="cul-ic serif">${c.tag[0]}</div><div style="flex:1"><span class="tag tag-red">${c.tag}</span><div class="cul-title serif">${c.title}</div><div class="cul-desc">${c.desc}</div></div></div>`).join('') + `</div>`;
@@ -583,29 +693,28 @@
     document.getElementById('levelList').innerHTML = levels.map(l => `<div class="level-item ${l.cur?'cur':''}"><div class="ln serif">${l.name}</div><div class="lp">${l.points}</div></div>`).join('');
   }
   function renderMemberBenefits(){
-    document.getElementById('memberBenefits').innerHTML = memberBenefits.map(b => `<div class="benefit-cell"><div class="benefit-ic serif">${b.ic}</div><div class="benefit-name">${b.name}</div><div class="benefit-desc">${b.desc}</div></div>`).join('');
+    document.getElementById('memberBenefits').innerHTML = memberBenefits.map(b => `<div class="benefit-cell"${b.go?` onclick="go('${b.go}')"`:''}><div class="benefit-ic serif">${b.ic}</div><div class="benefit-name">${b.name}</div><div class="benefit-desc">${b.desc}</div></div>`).join('');
   }
   function renderRecentPoints(){
     document.getElementById('recentPoints').innerHTML = pointsRecords.slice(0,3).map(p => `<div class="point-item"><span class="point-title">${p.title}</span><span class="point-val ${p.type}">${p.value}</span></div>`).join('');
   }
   function renderMineMenu(){
-    const menus = [ ['集','我的活动','events'],['分','积分明细','points'],['权','权益中心','benefits'],['码','我的核销码','voucher'],['约','我的预约','booking'],['档','完善会员档案','register'] ];
+    const menus = [ ['集','我的活动','my-events'],['分','积分明细','points'],['权','权益中心','benefits'],['档','完善会员档案','register'],['客','联系客服','contact'] ];
     document.getElementById('mineMenu').innerHTML = menus.map(m => `<div class="menu-item" onclick="go('${m[2]}')"><div class="menu-ic serif">${m[0]}</div><div class="menu-name">${m[1]}</div><div class="menu-arrow">›</div></div>`).join('') +
       `<div class="menu-item" onclick="toast('关于兰亭荟')"><div class="menu-ic serif">兰</div><div class="menu-name">关于兰亭荟</div><div class="menu-arrow">›</div></div>`;
+  }
+  const faqs = ['入会咨询','活动报名','核销问题','积分权益','商城下单','售后问题'];
+  function renderFaq(){
+    document.getElementById('faqList').innerHTML = faqs.map(f => `<span class="faq-chip" onclick="toast('咨询：${f}')">${f}</span>`).join('');
   }
   function renderBenefitsPanel(){
     document.getElementById('benefitsPanel').innerHTML = `
       <div class="card"><div class="card-title serif">免费权益</div>` + benefits.filter(b=>b.tagc==='tag-red').map(b=>`
-        <div class="point-item"><div style="display:flex;align-items:center;gap:10px"><div class="benefit-ic serif" style="margin:0">${b.ic}</div><div><div style="font-size:13px;color:var(--ink);font-weight:500">${b.name}</div><div style="font-size:11px;color:var(--muted)">${b.desc}</div></div></div><span class="tag ${b.tagc}">${b.tag}</span></div>`).join('') + `</div>
+        <div class="point-item"${b.go?` onclick="go('${b.go}')"`:''}><div style="display:flex;align-items:center;gap:10px"><div class="benefit-ic serif" style="margin:0">${b.ic}</div><div><div style="font-size:13px;color:var(--ink);font-weight:500">${b.name}</div><div style="font-size:11px;color:var(--muted)">${b.desc}</div></div></div><span class="tag ${b.tagc}">${b.tag}</span></div>`).join('') + `</div>
       <div class="card"><div class="card-title serif">限定权益</div>` + benefits.filter(b=>b.tagc==='tag-gold').map(b=>`
-        <div class="point-item"><div style="display:flex;align-items:center;gap:10px"><div class="benefit-ic serif" style="margin:0">${b.ic}</div><div><div style="font-size:13px;color:var(--ink);font-weight:500">${b.name}</div><div style="font-size:11px;color:var(--muted)">${b.desc}</div></div></div><span class="tag ${b.tagc}">${b.tag}</span></div>`).join('') + `</div>
+        <div class="point-item"${b.go?` onclick="go('${b.go}')"`:''}><div style="display:flex;align-items:center;gap:10px"><div class="benefit-ic serif" style="margin:0">${b.ic}</div><div><div style="font-size:13px;color:var(--ink);font-weight:500">${b.name}</div><div style="font-size:11px;color:var(--muted)">${b.desc}</div></div></div><span class="tag ${b.tagc}">${b.tag}</span></div>`).join('') + `</div>
       <div class="card"><div class="card-title serif">积分兑换好礼</div><div style="display:flex;flex-wrap:wrap">` + exchangeItems.map(x=>`
         <div style="width:33.33%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px 4px" onclick="toast('兑换 ${x.name}（演示）')"><div class="benefit-ic serif" style="width:50px;height:50px;border-radius:12px;font-size:22px">${x.ic}</div><div style="font-size:12px;color:var(--ink);line-height:1.3">${x.name}</div><div style="font-size:11px;color:var(--gold);font-weight:600;margin-top:3px">${x.pts} 积分</div></div>`).join('') + `</div></div>`;
-  }
-  function renderBooking(){
-    document.getElementById('bookingPanel').innerHTML = bookingTypes.map(b => `
-      <div class="card cul-card" onclick="toast('预约 ${b.name}（演示）')"><div class="cul-ic serif">${b.ic}</div><div style="flex:1"><div class="cul-title" style="margin-top:0">${b.name}</div><div class="cul-desc">${b.desc}</div></div></div>`).join('') +
-      `<div style="font-size:11px;color:var(--faint);text-align:center;margin-top:12px">高端私宴 · 酒厂研学 · 商务定制，专属客服一对一对接。</div>`;
   }
   function renderPointsList(){
     document.getElementById('pointsList').innerHTML = pointsRecords.map(p => `<div class="point-item"><div><div style="font-size:13px;color:var(--ink)">${p.title}</div><div style="font-size:11px;color:var(--faint);margin-top:2px">2026-09-12</div></div><span class="point-val ${p.type}">${p.value}</span></div>`).join('');
@@ -625,7 +734,7 @@
   function go(id){ stack.push(id); show(id); }
   function back(){ if (stack.length>1) stack.pop(); show(stack[stack.length-1]); }
   function renderTabbar(){
-    const icons = ['首','集','文','会','我'], names = ['首页','活动','文化','会员','我的'];
+    const icons = ['首','集','文','城','我'], names = ['首页','活动','文化','商城','我的'];
     document.getElementById('tabbar').innerHTML = TABS.map((t,i)=>`<div class="tab ${i===0?'on':''}" onclick="switchTab(${i})"><div class="ic serif">${icons[i]}</div><div class="tx">${names[i]}</div></div>`).join('');
   }
   function switchTab(i){ stack = [TABS[i]]; show(TABS[i]); }
@@ -671,7 +780,7 @@
   /* ============ 初始化 ============ */
   renderTabbar();
   renderBanner(); renderQuick(); renderFeatured(); renderSeasons();
-  renderCatBar(); renderEventList(); renderCultures(); renderSeasonFilter(); renderBanquets();
-  renderLevels(); renderMemberBenefits(); renderRecentPoints(); renderMineMenu();
-  renderBenefitsPanel(); renderBooking(); renderPointsList(); renderAcc();
+  renderStatusBar(); renderCatBar(); renderRegionBar(); renderEventList(); renderCultures(); renderSeasonFilter(); renderBanquets(); renderMallCatBar(); renderMallList();
+  renderLevels(); renderMemberBenefits(); renderRecentPoints(); renderMineMenu(); renderFaq(); renderMyEvents();
+  renderBenefitsPanel(); renderPointsList(); renderAcc();
 </script>
