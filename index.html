@@ -266,6 +266,15 @@
   .qr-seal { width: 40px; height: 40px; border: 2px solid var(--brand); border-radius: 6px; color: var(--brand); display: flex; align-items: center; justify-content: center; font-size: 22px; transform: rotate(-6deg); }
   .voucher-code { font-size: 20px; font-weight: 600; letter-spacing: 2px; color: var(--ink); margin-top: 16px; }
   .voucher-remark { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 6px; }
+
+  /* 积分兑换 */
+  .mode-row { display: flex; gap: 10px; }
+  .mode-item { flex: 1; border: 1px solid var(--line); border-radius: 10px; padding: 14px 10px; text-align: center; cursor: pointer; background: #fff; }
+  .mode-item.on { border-color: var(--brand); background: #FBF4F3; box-shadow: 0 0 0 1px var(--brand); }
+  .mode-ic { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; margin: 0 auto 8px; }
+  .mode-item.on .mode-ic { background: var(--brand); }
+  .mode-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .mode-desc { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 </style>
 
 <div class="stage">
@@ -475,6 +484,34 @@
         </div>
       </section>
 
+      <!-- ============ 积分兑换确认 ============ -->
+      <section class="page" id="p-exchange" style="padding-bottom:70px">
+        <div id="exchangePanel"></div>
+        <div class="bottom-bar">
+          <button class="btn btn-primary" id="exchangeBtn" onclick="confirmExchange()">立即兑换</button>
+        </div>
+      </section>
+
+      <!-- ============ 收货地址 ============ -->
+      <section class="page" id="p-address">
+        <div class="detail-hero bg-red"><div class="cate">收货地址</div><div class="t serif">填写收货信息</div><div style="font-size:12px;opacity:.85">兑换商品将邮寄至以下地址</div></div>
+        <div class="container">
+          <div class="card">
+            <div class="form-item"><div class="form-label">收货人 <span class="req">*</span></div><input class="form-input" placeholder="请输入收货人姓名"></div>
+            <div class="form-item"><div class="form-label">手机号 <span class="req">*</span></div><input class="form-input" placeholder="请输入联系电话"></div>
+            <div class="form-item"><div class="form-label">所在地区 <span class="req">*</span></div><input class="form-input" placeholder="省 / 市 / 区"></div>
+            <div class="form-item" style="border:none"><div class="form-label">详细地址 <span class="req">*</span></div><input class="form-input" placeholder="街道、门牌号、小区、楼栋等"></div>
+          </div>
+          <button class="btn btn-primary" style="width:100%" onclick="submitAddress()">确认兑换</button>
+          <div style="font-size:11px;color:var(--faint);text-align:center;margin-top:12px;line-height:1.6" id="addressTip"></div>
+        </div>
+      </section>
+
+      <!-- ============ 兑换核销码 ============ -->
+      <section class="page" id="p-pickup">
+        <div class="container" style="padding-top:26px" id="pickupPanel"></div>
+      </section>
+
       <!-- ============ 积分明细 ============ -->
       <section class="page" id="p-points">
         <div class="detail-hero bg-red" style="text-align:center"><div style="font-size:36px;font-weight:700;color:#E9D3A8">26800</div><div style="font-size:13px;opacity:.85;margin-top:4px">当前积分</div></div>
@@ -586,18 +623,23 @@
     { ic:'私', name:'私宴定制', tag:'限定权益', tagc:'tag-gold', desc:'大师私享定制' }
   ];
   const exchangeItems = [
-    { ic:'酒', name:'限定品鉴小酒', pts:1200 }, { ic:'茶', name:'兰亭文创·茶具', pts:3600 },
-    { ic:'礼', name:'节气伴手礼', pts:800 }, { ic:'席', name:'雅集名额抵扣', pts:5000 },
-    { ic:'墨', name:'文房套装', pts:2800 }, { ic:'酿', name:'陈年黄酒礼盒', pts:8000 }
+    { ic:'酒', name:'限定品鉴小酒', pts:1200, desc:'兰亭限定小瓶装，大师甄选，小酌雅赏。' },
+    { ic:'茶', name:'兰亭文创·茶具', pts:3600, desc:'曲水流觞主题青瓷茶具套组，雅趣天成。' },
+    { ic:'礼', name:'节气伴手礼', pts:800, desc:'应季节令伴手礼，随节而赠、应时而食。' },
+    { ic:'席', name:'雅集名额抵扣', pts:5000, desc:'兑换后可抵扣一次兰亭雅集活动名额。' },
+    { ic:'墨', name:'文房套装', pts:2800, desc:'兰亭集序主题文房四宝，笔墨纸砚齐备。' },
+    { ic:'酿', name:'陈年黄酒礼盒', pts:8000, desc:'陈年花雕礼盒，送礼雅器、宴客臻品。' }
   ];
   const TABS = ['index','events','culture','mall','mine'];
-  const TITLES = { index:'兰亭荟', events:'兰亭雅集', culture:'兰亭风雅', mall:'兰亭商城', mine:'我的', 'event-detail':'活动详情', signup:'活动报名', benefits:'权益中心', voucher:'核销确认', points:'积分明细', register:'入会注册', contact:'联系客服', 'my-events':'我的活动', priority:'携友参会', tasting:'专属品鉴', gift:'节日礼赠' };
+  const TITLES = { index:'兰亭荟', events:'兰亭雅集', culture:'兰亭风雅', mall:'兰亭商城', mine:'我的', 'event-detail':'活动详情', signup:'活动报名', benefits:'权益中心', voucher:'核销确认', points:'积分明细', register:'入会注册', contact:'联系客服', 'my-events':'我的活动', priority:'携友参会', tasting:'专属品鉴', gift:'节日礼赠', exchange:'兑换确认', address:'收货地址', pickup:'核销码' };
   let stack = ['index'];
   let currentEvent = null;
   let activeCategory = '全部';
   let activeRegion = '全部';
   let activeStatus = '全部';
   let activeMallCate = '全部';
+  let currentExchange = null;
+  let exchangeMode = 'mail';
 
   /* ============ 渲染 ============ */
   function el(tag, cls, html){ return `<${tag} class="${cls}">${html}</${tag}>`; }
@@ -734,8 +776,8 @@
         <div class="point-item"${b.go?` onclick="go('${b.go}')"`:''}><div style="display:flex;align-items:center;gap:10px"><div class="benefit-ic serif" style="margin:0">${b.ic}</div><div><div style="font-size:13px;color:var(--ink);font-weight:500">${b.name}</div><div style="font-size:11px;color:var(--muted)">${b.desc}</div></div></div><span class="tag ${b.tagc}">${b.tag}</span></div>`).join('') + `</div>
       <div class="card"><div class="card-title serif">限定权益</div>` + benefits.filter(b=>b.tagc==='tag-gold').map(b=>`
         <div class="point-item"${b.go?` onclick="go('${b.go}')"`:''}><div style="display:flex;align-items:center;gap:10px"><div class="benefit-ic serif" style="margin:0">${b.ic}</div><div><div style="font-size:13px;color:var(--ink);font-weight:500">${b.name}</div><div style="font-size:11px;color:var(--muted)">${b.desc}</div></div></div><span class="tag ${b.tagc}">${b.tag}</span></div>`).join('') + `</div>
-      <div class="card"><div class="card-title serif">积分兑换好礼</div><div style="display:flex;flex-wrap:wrap">` + exchangeItems.map(x=>`
-        <div style="width:33.33%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px 4px" onclick="toast('兑换 ${x.name}（演示）')"><div class="benefit-ic serif" style="width:50px;height:50px;border-radius:12px;font-size:22px">${x.ic}</div><div style="font-size:12px;color:var(--ink);line-height:1.3">${x.name}</div><div style="font-size:11px;color:var(--gold);font-weight:600;margin-top:3px">${x.pts} 积分</div></div>`).join('') + `</div></div>`;
+      <div class="card"><div class="card-title serif">积分兑换好礼</div><div style="display:flex;flex-wrap:wrap">` + exchangeItems.map((x,i)=>`
+        <div style="width:33.33%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px 4px" onclick="openExchange(${i})"><div class="benefit-ic serif" style="width:50px;height:50px;border-radius:12px;font-size:22px">${x.ic}</div><div style="font-size:12px;color:var(--ink);line-height:1.3">${x.name}</div><div style="font-size:11px;color:var(--gold);font-weight:600;margin-top:3px">${x.pts} 积分</div></div>`).join('') + `</div></div>`;
   }
   function renderPriority(){
     const inv = { total: 3, used: 1 };
@@ -833,6 +875,72 @@
   function cultureSeg(s, node){ document.querySelectorAll('.seg-item').forEach(x=>x.classList.remove('on')); node.classList.add('on'); document.getElementById('culturePanel').style.display = s==='culture'?'block':'none'; document.getElementById('pairingPanel').style.display = s==='pairing'?'block':'none'; }
   function submitSignup(){ toast('报名成功，已为您预留席位'); setTimeout(back, 600); }
   function copyCode(){ toast('已复制核销码'); }
+
+  /* ============ 积分兑换 ============ */
+  function openExchange(i){
+    currentExchange = exchangeItems[i];
+    exchangeMode = 'mail';
+    renderExchange();
+    go('exchange');
+  }
+  function renderExchange(){
+    const x = currentExchange;
+    document.getElementById('exchangePanel').innerHTML = `
+      <div class="detail-hero bg-red" style="text-align:center">
+        <div class="serif" style="font-size:40px">${x.ic}</div>
+        <div class="serif" style="font-size:20px;font-weight:600;margin-top:6px">${x.name}</div>
+        <div style="font-size:13px;color:#E9D3A8;font-weight:600;margin-top:8px">${x.pts} 积分</div>
+      </div>
+      <div class="container">
+        <div class="card"><div class="card-title serif">商品说明</div><div style="font-size:13px;color:var(--ink-2);line-height:1.8">${x.desc}</div></div>
+        <div class="card">
+          <div class="card-title serif">兑换方式</div>
+          <div class="mode-row">
+            <div class="mode-item on" onclick="selExchangeMode('mail',this)"><div class="mode-ic serif">寄</div><div class="mode-name">邮寄到家</div><div class="mode-desc">填写收货地址，包邮到家</div></div>
+            <div class="mode-item" onclick="selExchangeMode('pickup',this)"><div class="mode-ic serif">取</div><div class="mode-name">到店自提</div><div class="mode-desc">生成核销码，凭码到店</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="info-row"><span class="info-label">所需积分</span><span class="info-val" style="color:var(--gold)">${x.pts} 积分</span></div>
+          <div class="info-row"><span class="info-label">我的积分</span><span class="info-val">${user.points} 积分</span></div>
+          <div class="info-row" style="border:none"><span class="info-label">兑换后剩余</span><span class="info-val">${user.points - x.pts} 积分</span></div>
+        </div>
+      </div>`;
+  }
+  function selExchangeMode(mode, node){
+    exchangeMode = mode;
+    document.querySelectorAll('.mode-item').forEach(m => m.classList.remove('on'));
+    node.classList.add('on');
+  }
+  function confirmExchange(){
+    const x = currentExchange;
+    if (exchangeMode === 'mail') {
+      document.getElementById('addressTip').textContent = '确认后将从您的账户扣除 ' + x.pts + ' 积分，商品将于 7 个工作日内寄出。';
+      go('address');
+    } else {
+      renderPickup();
+      go('pickup');
+    }
+  }
+  function submitAddress(){
+    const x = currentExchange;
+    toast('兑换成功，已扣除 ' + x.pts + ' 积分，商品将寄送至您填写的地址');
+    setTimeout(()=>{ stack = ['mine']; show('mine'); }, 900);
+  }
+  function renderPickup(){
+    const x = currentExchange;
+    const code = 'LT-2026-0922-' + String(1000 + Math.floor(Math.random()*9000));
+    document.getElementById('pickupPanel').innerHTML = `
+      <div class="voucher-card">
+        <div class="serif" style="font-size:16px;font-weight:600;margin-bottom:16px">${x.name}</div>
+        <div class="qr"><div class="qr-corner tl"></div><div class="qr-corner tr"></div><div class="qr-corner bl"></div><div class="qr-seal serif">兰</div></div>
+        <div class="voucher-code serif">${code}</div>
+        <span class="tag tag-red">待核销</span>
+        <div class="voucher-remark">凭此核销码至会稽山门店领取，一码一物、单次有效，请勿向他人泄露</div>
+      </div>
+      <div class="btn btn-primary" style="width:100%;margin-top:20px" onclick="copyCode()">复制核销码</div>
+      <div style="font-size:11px;color:var(--faint);text-align:center;margin-top:12px;line-height:1.6">请向工作人员出示本核销码，扫码核销后一码一物、单次有效，不可重复使用。</div>`;
+  }
 
   /* ============ Toast ============ */
   let toastTimer = null;
